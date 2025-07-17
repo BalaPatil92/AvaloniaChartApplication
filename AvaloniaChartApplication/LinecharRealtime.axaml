@@ -1,0 +1,52 @@
+<Window
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:AvaloniaChartApplication"
+    xmlns:d="https://github.com/avaloniaui"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Avalonia;assembly=LiveChartsCore.SkiaSharpView.Avalonia"
+    x:Class="AvaloniaChartApplication.LinecharRealtime"
+    x:DataType="local:LinecharRealtime"
+    Width="900"
+    Height="600"
+    Title="Live Chart Avalonia">
+
+  <Grid Margin="10">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+
+    <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,0,0,10">
+      <StackPanel Margin="5">
+        <TextBlock Text="Points/sec"/>
+        <TextBox x:Name="PointsPerSecondBox" Width="100"/>
+      </StackPanel>
+
+      <StackPanel Margin="5">
+        <TextBlock Text="Duration (min)"/>
+        <TextBox x:Name="DurationBox" Width="100"/>
+      </StackPanel>
+
+      <StackPanel Margin="5">
+        <TextBlock Text="Dataset Count"/>
+        <TextBox x:Name="DatasetCountBox" Width="100"/>
+      </StackPanel>
+
+      <Button Content="Load Data" Margin="10,20,0,0" Click="StartButton_Click"/>
+      <Button Content="Stop" Margin="10,20,0,0" Click="StopButton_Click"/>
+      <Button Content="Clear" Margin="10,20,0,0" Click="ClearButton_Click"/>
+    </StackPanel>
+
+    <Border Grid.Row="1" Name="ChartContainer" IsVisible="False">
+      <lvc:CartesianChart x:Name="Chart"
+                          Series="{Binding Series}"
+                          XAxes="{Binding XAxes}"
+                          YAxes="{Binding YAxes}"
+                          ZoomMode="X"
+                          TooltipPosition="Top"
+                          LegendPosition="Top"/>
+    </Border>
+  </Grid>
+</Window>
+

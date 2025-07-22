@@ -1,10 +1,338 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Class="AvaloniaChartApplication.MainWindow"
-        Width="400" Height="200"
-        Title="Main Window">
+        Width="1200" Height="800"
+        Title="Avalonia Chart Application"
+        Background="#F5F5F5">
 
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="10">
-        <Button Content="Line Chart Realtime" Width="200" Height="40" Click="OpenAnotherWindow_Click"/>
-    </StackPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Header Navigation -->
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" 
+                Background="#2E5BBA">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                
+                <!-- App Title -->
+                <TextBlock Grid.Column="0" 
+                          Text="Chart Dashboard" 
+                          FontSize="18" 
+                          FontWeight="Bold" 
+                          Foreground="White" 
+                          VerticalAlignment="Center" 
+                          HorizontalAlignment="Center"/>
+                
+                <!-- Search Box -->
+                <TextBox Grid.Column="1" 
+                        Name="SearchBox"
+                        Watermark="Search charts..." 
+                        Width="300" 
+                        Height="35" 
+                        Margin="20,0" 
+                        VerticalAlignment="Center" 
+                        HorizontalAlignment="Left"
+                        Background="White"
+                        BorderBrush="#4A90E2"
+                        BorderThickness="2"
+                        CornerRadius="17"/>
+                
+                <!-- User Profile Area -->
+                <StackPanel Grid.Column="2" 
+                           Orientation="Horizontal" 
+                           VerticalAlignment="Center" 
+                           Margin="0,0,20,0"
+                           Spacing="10">
+                    <Button Content="Settings" 
+                           Background="#4A90E2" 
+                           Foreground="White" 
+                           BorderBrush="Transparent"
+                           CornerRadius="15"
+                           Padding="15,8"
+                           Click="Settings_Click"/>
+                    <Ellipse Width="35" Height="35" Fill="#4A90E2"/>
+                    <TextBlock Text="User" 
+                              Foreground="White" 
+                              VerticalAlignment="Center" 
+                              FontSize="14"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- Side Menu -->
+        <Border Grid.Row="1" Grid.Column="0" 
+                Background="White" 
+                BorderBrush="#E1E8F0" 
+                BorderThickness="0,0,1,0">
+            <ScrollViewer>
+                <StackPanel Margin="0,20,0,0" Spacing="5">
+                    
+                    <!-- Menu Section: Dashboard -->
+                    <TextBlock Text="DASHBOARD" 
+                              Margin="20,10,20,5" 
+                              FontSize="12" 
+                              FontWeight="Bold" 
+                              Foreground="#6B7280"/>
+                    
+                    <Button Name="DashboardBtn" 
+                           Content="📊 Overview" 
+                           Background="Transparent" 
+                           Foreground="#2E5BBA" 
+                           BorderBrush="Transparent"
+                           HorizontalAlignment="Stretch" 
+                           HorizontalContentAlignment="Left" 
+                           Padding="20,12" 
+                           FontSize="14"
+                           Click="Dashboard_Click"/>
+                    
+                    <Button Name="AnalyticsBtn" 
+                           Content="📈 Analytics" 
+                           Background="Transparent" 
+                           Foreground="#6B7280" 
+                           BorderBrush="Transparent"
+                           HorizontalAlignment="Stretch" 
+                           HorizontalContentAlignment="Left" 
+                           Padding="20,12" 
+                           FontSize="14"
+                           Click="Analytics_Click"/>
+                    
+                    <!-- Menu Section: Charts -->
+                    <TextBlock Text="CHARTS" 
+                              Margin="20,20,20,5" 
+                              FontSize="12" 
+                              FontWeight="Bold" 
+                              Foreground="#6B7280"/>
+                    
+                    <Button Name="LineChartBtn" 
+                           Content="📉 Line Charts" 
+                           Background="#EBF4FF" 
+                           Foreground="#2E5BBA" 
+                           BorderBrush="#4A90E2"
+                           BorderThickness="0,0,3,0"
+                           HorizontalAlignment="Stretch" 
+                           HorizontalContentAlignment="Left" 
+                           Padding="20,12" 
+                           FontSize="14"
+                           CornerRadius="0"
+                           Click="OpenAnotherWindow_Click"/>
+                    
+                    <Button Name="BarChartBtn" 
+                           Content="📊 Bar Charts" 
+                           Background="Transparent" 
+                           Foreground="#6B7280" 
+                           BorderBrush="Transparent"
+                           HorizontalAlignment="Stretch" 
+                           HorizontalContentAlignment="Left" 
+                           Padding="20,12" 
+                           FontSize="14"
+                           Click="BarChart_Click"/>
+                    
+                    <Button Name="PieChartBtn" 
+                           Content="🥧 Pie Charts" 
+                           Background="Transparent" 
+                           Foreground="#6B7280" 
+                           BorderBrush="Transparent"
+                           HorizontalAlignment="Stretch" 
+                           HorizontalContentAlignment="Left" 
+                           Padding="20,12" 
+                           FontSize="14"
+                           Click="PieChart_Click"/>
+                    
+                    <Button Name="ScatterChartBtn" 
+                           Content="⚫ Scatter Plots" 
+                           Background="Transparent" 
+                           Foreground="#6B7280" 
+                           BorderBrush="Transparent"
+                           HorizontalAlignment="Stretch" 
+                           HorizontalContentAlignment="Left" 
+                           Padding="20,12" 
+                           FontSize="14"
+                           Click="ScatterChart_Click"/>
+                    
+                    <!-- Menu Section: Data -->
+                    <TextBlock Text="DATA MANAGEMENT" 
+                              Margin="20,20,20,5" 
+                              FontSize="12" 
+                              FontWeight="Bold" 
+                              Foreground="#6B7280"/>
+                    
+                    <Button Name="ImportDataBtn" 
+                           Content="📥 Import Data" 
+                           Background="Transparent" 
+                           Foreground="#6B7280" 
+                           BorderBrush="Transparent"
+                           HorizontalAlignment="Stretch" 
+                           HorizontalContentAlignment="Left" 
+                           Padding="20,12" 
+                           FontSize="14"
+                           Click="ImportData_Click"/>
+                    
+                    <Button Name="ExportDataBtn" 
+                           Content="📤 Export Data" 
+                           Background="Transparent" 
+                           Foreground="#6B7280" 
+                           BorderBrush="Transparent"
+                           HorizontalAlignment="Stretch" 
+                           HorizontalContentAlignment="Left" 
+                           Padding="20,12" 
+                           FontSize="14"
+                           Click="ExportData_Click"/>
+                    
+                    <!-- Menu Section: Settings -->
+                    <TextBlock Text="SETTINGS" 
+                              Margin="20,20,20,5" 
+                              FontSize="12" 
+                              FontWeight="Bold" 
+                              Foreground="#6B7280"/>
+                    
+                    <Button Name="PreferencesBtn" 
+                           Content="⚙️ Preferences" 
+                           Background="Transparent" 
+                           Foreground="#6B7280" 
+                           BorderBrush="Transparent"
+                           HorizontalAlignment="Stretch" 
+                           HorizontalContentAlignment="Left" 
+                           Padding="20,12" 
+                           FontSize="14"
+                           Click="Preferences_Click"/>
+                    
+                    <Button Name="HelpBtn" 
+                           Content="❓ Help Support" 
+                           Background="Transparent" 
+                           Foreground="#6B7280" 
+                           BorderBrush="Transparent"
+                           HorizontalAlignment="Stretch" 
+                           HorizontalContentAlignment="Left" 
+                           Padding="20,12" 
+                           FontSize="14"
+                           Click="Help_Click"/>
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
+
+        <!-- Main Content Area -->
+        <ContentControl Grid.Row="1" Grid.Column="1" Name="MainContentArea">
+            <ScrollViewer>
+                <StackPanel Margin="40" Spacing="30">
+                    
+                    <!-- Welcome Section -->
+                    <Border Background="White" 
+                           CornerRadius="10" 
+                           Padding="30">
+                        <StackPanel Spacing="15">
+                            <TextBlock Text="Welcome to Chart Dashboard" 
+                                      FontSize="28" 
+                                      FontWeight="Bold" 
+                                      Foreground="#2E5BBA"/>
+                            <TextBlock Text="Create and manage your data visualizations with ease." 
+                                      FontSize="16" 
+                                      Foreground="#6B7280" 
+                                      TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </Border>
+                    
+                    <!-- Quick Actions -->
+                    <Border Background="White" 
+                           CornerRadius="10" 
+                           Padding="30">
+                        <StackPanel Spacing="20">
+                            <TextBlock Text="Quick Actions" 
+                                      FontSize="20" 
+                                      FontWeight="Bold" 
+                                      Foreground="#2E5BBA"/>
+                            
+                            <UniformGrid Rows="2" Columns="2" VerticalAlignment="Top">
+                                <Button Content="📊 Create Line Chart" 
+                                       Background="#4A90E2" 
+                                       Foreground="White" 
+                                       Padding="20,15" 
+                                       Margin="5" 
+                                       CornerRadius="8"
+                                       FontSize="14"
+                                       Click="OpenAnotherWindow_Click"/>
+                                
+                                <Button Content="📈 View Analytics" 
+                                       Background="#4A90E2" 
+                                       Foreground="White" 
+                                       Padding="20,15" 
+                                       Margin="5" 
+                                       CornerRadius="8"
+                                       FontSize="14"
+                                       Click="Analytics_Click"/>
+                                
+                                <Button Content="📥 Import Dataset" 
+                                       Background="#4A90E2" 
+                                       Foreground="White" 
+                                       Padding="20,15" 
+                                       Margin="5" 
+                                       CornerRadius="8"
+                                       FontSize="14"
+                                       Click="ImportData_Click"/>
+                                
+                                <Button Content="⚙️ Configure Settings" 
+                                       Background="#4A90E2" 
+                                       Foreground="White" 
+                                       Padding="20,15" 
+                                       Margin="5" 
+                                       CornerRadius="8"
+                                       FontSize="14"
+                                       Click="Settings_Click"/>
+                            </UniformGrid>
+                        </StackPanel>
+                    </Border>
+                    
+                    <!-- Recent Activity -->
+                    <Border Background="White" 
+                           CornerRadius="10" 
+                           Padding="30">
+                        <StackPanel Spacing="15">
+                            <TextBlock Text="Recent Activity" 
+                                      FontSize="20" 
+                                      FontWeight="Bold" 
+                                      Foreground="#2E5BBA"/>
+                            
+                            <StackPanel Spacing="10">
+                                <Border Background="#F8FAFC" 
+                                       CornerRadius="6" 
+                                       Padding="15">
+                                    <TextBlock Text="📊 Line chart created - Sales Data Q4" 
+                                              FontSize="14" 
+                                              Foreground="#374151"/>
+                                </Border>
+                                
+                                <Border Background="#F8FAFC" 
+                                       CornerRadius="6" 
+                                       Padding="15">
+                                    <TextBlock Text="📈 Analytics report generated" 
+                                              FontSize="14" 
+                                              Foreground="#374151"/>
+                                </Border>
+                                
+                                <Border Background="#F8FAFC" 
+                                       CornerRadius="6" 
+                                       Padding="15">
+                                    <TextBlock Text="📥 Dataset imported - Customer_Data.csv" 
+                                              FontSize="14" 
+                                              Foreground="#374151"/>
+                                </Border>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                    
+                </StackPanel>
+            </ScrollViewer>
+        </ContentControl> 
+      
+    </Grid>
 </Window>

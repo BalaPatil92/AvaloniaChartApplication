@@ -6,163 +6,60 @@
     <Application.Styles>
         <FluentTheme />
         
-        <!-- Global TextBox Styles -->
+        <!-- Responsive Global Styles -->
+        <Style Selector="Window">
+            <Setter Property="MinWidth" Value="800"/>
+            <Setter Property="MinHeight" Value="600"/>
+        </Style>
+        
+        <!-- Global TextBox Styles with Responsive Design -->
         <Style Selector="TextBox">
             <Setter Property="Margin" Value="5"/>
-            <Setter Property="Padding" Value="12,10"/>
+            <Setter Property="Padding" Value="10,8"/>
             <Setter Property="FontSize" Value="14"/>
-            <Setter Property="BorderBrush" Value="#4A90E2"/>
-            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="#10B981"/>
+            <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="Background" Value="White"/>
-            <Setter Property="CornerRadius" Value="8"/>
-            <Setter Property="MinHeight" Value="40"/>
+            <Setter Property="CornerRadius" Value="6"/>
+            <Setter Property="MinHeight" Value="36"/>
             <Setter Property="Foreground" Value="#374151"/>
         </Style>
 
-        <!-- TextBox Focus State -->
         <Style Selector="TextBox:focus">
-            <Setter Property="BorderBrush" Value="#2E5BBA"/>
+            <Setter Property="BorderBrush" Value="#059669"/>
+            <Setter Property="BorderThickness" Value="2"/>
         </Style>
 
-        <!-- TextBox Hover State -->
         <Style Selector="TextBox:pointerover">
-            <Setter Property="BorderBrush" Value="#2E5BBA"/>
+            <Setter Property="BorderBrush" Value="#059669"/>
         </Style>
 
-        <!-- Global Button Styles -->
+        <!-- Simplified Button Styles -->
         <Style Selector="Button">
             <Setter Property="Margin" Value="5"/>
-            <Setter Property="Padding" Value="16,12"/>
+            <Setter Property="Padding" Value="12,8"/>
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
-            <Setter Property="Background" Value="#4A90E2"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="BorderBrush" Value="#4A90E2"/>
-            <Setter Property="BorderThickness" Value="2"/>
-            <Setter Property="CornerRadius" Value="8"/>
-            <Setter Property="MinHeight" Value="40"/>
-            <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="Transitions">
-                <Transitions>
-                    <DoubleTransition Property="Opacity" Duration="0:0:0.2"/>
-                    <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.2"/>
-                </Transitions>
-            </Setter>
-        </Style>
-
-        <!-- Button Hover State -->
-        <Style Selector="Button:pointerover">
-            <Setter Property="Background" Value="#2E5BBA"/>
-            <Setter Property="BorderBrush" Value="#2E5BBA"/>
-            <Setter Property="RenderTransform" Value="scale(1.02)"/>
-        </Style>
-
-        <!-- Button Pressed State -->
-        <Style Selector="Button:pressed">
-            <Setter Property="Background" Value="#1E3A8A"/>
-            <Setter Property="BorderBrush" Value="#1E3A8A"/>
-            <Setter Property="RenderTransform" Value="scale(0.98)"/>
-        </Style>
-
-        <!-- Secondary Button Style -->
-        <Style Selector="Button.secondary">
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Foreground" Value="#4A90E2"/>
-            <Setter Property="BorderBrush" Value="#4A90E2"/>
-            <Setter Property="BorderThickness" Value="2"/>
-        </Style>
-
-        <Style Selector="Button.secondary:pointerover">
-            <Setter Property="Background" Value="#EBF4FF"/>
-            <Setter Property="Foreground" Value="#2E5BBA"/>
-            <Setter Property="BorderBrush" Value="#2E5BBA"/>
-        </Style>
-
-        <!-- Danger Button Style -->
-        <Style Selector="Button.danger">
-            <Setter Property="Background" Value="#EF4444"/>
-            <Setter Property="BorderBrush" Value="#EF4444"/>
-        </Style>
-
-        <Style Selector="Button.danger:pointerover">
-            <Setter Property="Background" Value="#DC2626"/>
-            <Setter Property="BorderBrush" Value="#DC2626"/>
-        </Style>
-
-        <!-- Success Button Style -->
-        <Style Selector="Button.success">
             <Setter Property="Background" Value="#10B981"/>
+            <Setter Property="Foreground" Value="White"/>
             <Setter Property="BorderBrush" Value="#10B981"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="6"/>
+            <Setter Property="MinHeight" Value="36"/>
+            <Setter Property="Cursor" Value="Hand"/>
         </Style>
 
-        <Style Selector="Button.success:pointerover">
+        <Style Selector="Button:pointerover">
             <Setter Property="Background" Value="#059669"/>
             <Setter Property="BorderBrush" Value="#059669"/>
         </Style>
 
-        <!-- ComboBox Styles -->
-        <Style Selector="ComboBox">
-            <Setter Property="Margin" Value="5"/>
-            <Setter Property="Padding" Value="12,10"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="BorderBrush" Value="#4A90E2"/>
-            <Setter Property="BorderThickness" Value="2"/>
-            <Setter Property="Background" Value="White"/>
-            <Setter Property="CornerRadius" Value="8"/>
-            <Setter Property="MinHeight" Value="40"/>
+        <Style Selector="Button:pressed">
+            <Setter Property="Background" Value="#047857"/>
+            <Setter Property="BorderBrush" Value="#047857"/>
         </Style>
 
-        <!-- CheckBox Styles -->
-        <Style Selector="CheckBox">
-            <Setter Property="Margin" Value="5"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="Foreground" Value="#374151"/>
-        </Style>
-
-        <!-- RadioButton Styles -->
-        <Style Selector="RadioButton">
-            <Setter Property="Margin" Value="5"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="Foreground" Value="#374151"/>
-        </Style>
-
-        <!-- Card-like Border Style -->
-        <Style Selector="Border.card">
-            <Setter Property="Background" Value="White"/>
-            <Setter Property="CornerRadius" Value="12"/>
-            <Setter Property="Padding" Value="24"/>
-            <Setter Property="Margin" Value="8"/>
-        </Style>
-
-        <!-- Panel Background -->
-        <Style Selector="Panel.background">
-            <Setter Property="Background" Value="#F8FAFC"/>
-        </Style>
-
-        <!-- Header Text Styles -->
-        <Style Selector="TextBlock.header">
-            <Setter Property="FontSize" Value="24"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Foreground" Value="#2E5BBA"/>
-            <Setter Property="Margin" Value="0,0,0,16"/>
-        </Style>
-
-        <!-- Subheader Text Styles -->
-        <Style Selector="TextBlock.subheader">
-            <Setter Property="FontSize" Value="18"/>
-            <Setter Property="FontWeight" Value="SemiBold"/>
-            <Setter Property="Foreground" Value="#374151"/>
-            <Setter Property="Margin" Value="0,0,0,12"/>
-        </Style>
-
-        <!-- Body Text Styles -->
-        <Style Selector="TextBlock.body">
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="Foreground" Value="#6B7280"/>
-            <Setter Property="LineHeight" Value="1.5"/>
-        </Style>
-
-        <!-- Menu Button Styles -->
+        <!-- Menu Button Styles for Sidebar -->
         <Style Selector="Button.menu">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="Foreground" Value="#6B7280"/>
@@ -170,24 +67,49 @@
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
             <Setter Property="HorizontalContentAlignment" Value="Left"/>
-            <Setter Property="Padding" Value="20,12"/>
+            <Setter Property="Padding" Value="15,10"/>
             <Setter Property="CornerRadius" Value="0"/>
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="FontWeight" Value="Normal"/>
-            <Setter Property="MinHeight" Value="44"/>
+            <Setter Property="MinHeight" Value="40"/>
+            <Setter Property="Margin" Value="5,1"/>
         </Style>
 
         <Style Selector="Button.menu:pointerover">
-            <Setter Property="Background" Value="#F3F4F6"/>
-            <Setter Property="Foreground" Value="#4A90E2"/>
-            <Setter Property="RenderTransform" Value="none"/>
+            <Setter Property="Background" Value="#F0FDF4"/>
+            <Setter Property="Foreground" Value="#10B981"/>
+            <Setter Property="CornerRadius" Value="6"/>
         </Style>
 
         <Style Selector="Button.menu.active">
-            <Setter Property="Background" Value="#EBF4FF"/>
-            <Setter Property="Foreground" Value="#2E5BBA"/>
-            <Setter Property="BorderBrush" Value="#4A90E2"/>
-            <Setter Property="BorderThickness" Value="0,0,3,0"/>
+            <Setter Property="Background" Value="#10B981"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="CornerRadius" Value="6"/>
+            <Setter Property="Margin" Value="5,1"/>
+        </Style>
+
+        <!-- Toggle Button Style -->
+        <Style Selector="Button.toggle">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Width" Value="36"/>
+            <Setter Property="Height" Value="36"/>
+            <Setter Property="CornerRadius" Value="4"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="0"/>
+        </Style>
+
+        <Style Selector="Button.toggle:pointerover">
+            <Setter Property="Background" Value="#059669"/>
+        </Style>
+
+        <!-- Responsive Border Styles -->
+        <Style Selector="Border.chart-container">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="Padding" Value="15"/>
+            <Setter Property="Margin" Value="10"/>
         </Style>
 
     </Application.Styles>

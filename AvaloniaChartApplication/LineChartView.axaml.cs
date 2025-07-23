@@ -20,7 +20,7 @@ public partial class LineChartView : UserControl
     public Axis[] YAxes { get; set; }
 
     private DispatcherTimer _timer;
-    private List<List<double>> _datasets;
+    private List<List<double>> _datasets = new List<List<double>>();
     private int _maxPointsPerSeries = 300000;
     private int _pointsPerSecond;
     private int _remainingSeconds;
@@ -50,9 +50,9 @@ public partial class LineChartView : UserControl
 
     private void StartButton_Click(object? sender, RoutedEventArgs e)
     {
-        if (!int.TryParse(PointsPerSecondBox.Text, out _pointsPerSecond) ||
-            !int.TryParse(DurationBox.Text, out int durationMinutes) ||
-            !int.TryParse(DatasetCountBox.Text, out int datasetCount))
+        if (!int.TryParse(PointsPerSecondTextBox.Text, out _pointsPerSecond) ||
+            !int.TryParse(DurationTextBox.Text, out int durationMinutes) ||
+            !int.TryParse(DatasetCountTextBox.Text, out int datasetCount))
         {
             ShowError("Enter valid numeric values.");
             return;
@@ -129,9 +129,9 @@ public partial class LineChartView : UserControl
         Series.Clear();
         Chart.Series = null;
 
-        PointsPerSecondBox.Text = "10";
-        DurationBox.Text = "5";
-        DatasetCountBox.Text = "3";
+        PointsPerSecondTextBox.Text = "10";
+        DurationTextBox.Text = "5";
+        DatasetCountTextBox.Text = "3";
 
         ChartContainer.IsVisible = false;
     }
